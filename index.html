@@ -1,377 +1,564 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Phone Recovery Assistant</title>
+<title>Phone Recovery Assistant</title>
 
-    <meta name="description"
-        content="Phone Recovery Assistant — a simple and secure tool to help users recover and protect their phones.">
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    background:#070a10;
+    color:#fff;
+    min-height:100vh;
+}
 
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-            background: #080b12;
-            color: #ffffff;
-            min-height: 100vh;
-        }
+header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 7%;
+    border-bottom:1px solid #1b2432;
+    background:#0b0f17;
+    position:sticky;
+    top:0;
+    z-index:10;
+}
 
-        header {
-            padding: 22px 8%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid #1c2330;
-            background: #0b0f18;
-        }
+.logo{
+    font-size:22px;
+    font-weight:700;
+}
 
-        .logo {
-            font-size: 22px;
-            font-weight: 700;
-        }
+.logo span{
+    color:#4d8dff;
+}
 
-        .logo span {
-            color: #4f8cff;
-        }
+nav a{
+    color:#aeb7c7;
+    text-decoration:none;
+    margin-left:25px;
+    font-size:14px;
+}
 
-        nav a {
-            color: #b8c0d0;
-            text-decoration: none;
-            margin-left: 25px;
-            font-size: 14px;
-        }
+nav a:hover{
+    color:white;
+}
 
-        nav a:hover {
-            color: #ffffff;
-        }
+.hero{
+    padding:80px 20px 60px;
+    text-align:center;
+    max-width:900px;
+    margin:auto;
+}
 
-        .hero {
-            min-height: 75vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 60px 20px;
-        }
+.badge{
+    display:inline-block;
+    padding:8px 15px;
+    border:1px solid #29446f;
+    border-radius:30px;
+    color:#75a7ff;
+    background:#0e1726;
+    font-size:12px;
+    margin-bottom:22px;
+}
 
-        .hero-content {
-            max-width: 800px;
-        }
+.hero h1{
+    font-size:clamp(40px,7vw,70px);
+    line-height:1.05;
+    margin-bottom:20px;
+}
 
-        .badge {
-            display: inline-block;
-            padding: 8px 15px;
-            border: 1px solid #26354f;
-            border-radius: 30px;
-            color: #76a7ff;
-            background: #101827;
-            font-size: 13px;
-            margin-bottom: 25px;
-        }
+.hero h1 span{
+    color:#4d8dff;
+}
 
-        h1 {
-            font-size: clamp(42px, 7vw, 78px);
-            line-height: 1.05;
-            margin-bottom: 22px;
-        }
+.hero p{
+    color:#9ba6b8;
+    line-height:1.7;
+    font-size:17px;
+}
 
-        h1 span {
-            color: #4f8cff;
-        }
+.container{
+    width:86%;
+    max-width:1100px;
+    margin:auto;
+}
 
-        .hero p {
-            color: #aeb7c7;
-            font-size: 18px;
-            line-height: 1.7;
-            max-width: 650px;
-            margin: auto;
-        }
+.section{
+    padding:60px 0;
+}
 
-        .buttons {
-            margin-top: 35px;
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
+.title{
+    text-align:center;
+    margin-bottom:35px;
+}
 
-        .btn {
-            text-decoration: none;
-            padding: 13px 24px;
-            border-radius: 9px;
-            font-weight: 600;
-            transition: 0.2s;
-        }
+.title h2{
+    font-size:32px;
+    margin-bottom:10px;
+}
 
-        .primary {
-            background: #4f8cff;
-            color: white;
-        }
+.title p{
+    color:#8792a5;
+}
 
-        .primary:hover {
-            background: #3478f5;
-            transform: translateY(-2px);
-        }
+.device-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:20px;
+}
 
-        .secondary {
-            border: 1px solid #293448;
-            color: white;
-            background: #111722;
-        }
+.device{
+    background:#0d131e;
+    border:1px solid #202b3b;
+    border-radius:16px;
+    padding:30px;
+}
 
-        .secondary:hover {
-            background: #182131;
-        }
+.device-icon{
+    font-size:38px;
+    margin-bottom:15px;
+}
 
-        .features {
-            padding: 70px 8%;
-            background: #0b0f18;
-        }
+.device h3{
+    font-size:22px;
+    margin-bottom:10px;
+}
 
-        .section-title {
-            text-align: center;
-            margin-bottom: 40px;
-        }
+.device p{
+    color:#929daf;
+    line-height:1.6;
+    font-size:14px;
+}
 
-        .section-title h2 {
-            font-size: 34px;
-            margin-bottom: 10px;
-        }
+.btn{
+    display:inline-block;
+    margin-top:20px;
+    padding:12px 20px;
+    border-radius:8px;
+    border:0;
+    cursor:pointer;
+    text-decoration:none;
+    font-weight:600;
+    background:#4d8dff;
+    color:white;
+}
 
-        .section-title p {
-            color: #8994a7;
-        }
+.btn:hover{
+    background:#3478ef;
+}
 
-        .cards {
-            max-width: 1100px;
-            margin: auto;
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-        }
+.steps{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+}
 
-        .card {
-            padding: 28px;
-            border: 1px solid #1d2635;
-            border-radius: 15px;
-            background: #0f141f;
-        }
+.step{
+    background:#0d131e;
+    border:1px solid #202b3b;
+    border-radius:14px;
+    padding:25px;
+}
 
-        .icon {
-            font-size: 30px;
-            margin-bottom: 18px;
-        }
+.number{
+    width:36px;
+    height:36px;
+    border-radius:50%;
+    background:#172743;
+    color:#75a7ff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:bold;
+    margin-bottom:15px;
+}
 
-        .card h3 {
-            margin-bottom: 10px;
-        }
+.step h3{
+    margin-bottom:9px;
+}
 
-        .card p {
-            color: #929daf;
-            line-height: 1.6;
-            font-size: 14px;
-        }
+.step p{
+    color:#929daf;
+    line-height:1.6;
+    font-size:14px;
+}
 
-        .how {
-            padding: 70px 8%;
-            text-align: center;
-        }
+.warning{
+    margin-top:35px;
+    padding:22px;
+    border:1px solid #57481d;
+    background:#171407;
+    border-radius:12px;
+    color:#d8c681;
+    line-height:1.6;
+    font-size:14px;
+}
 
-        .steps {
-            max-width: 850px;
-            margin: 40px auto 0;
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-        }
+.modal{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.75);
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+    z-index:50;
+}
 
-        .step {
-            padding: 25px;
-            border-radius: 14px;
-            border: 1px solid #1d2635;
-        }
+.modal-box{
+    background:#0d131e;
+    border:1px solid #29364a;
+    border-radius:16px;
+    padding:30px;
+    max-width:650px;
+    width:100%;
+    max-height:85vh;
+    overflow:auto;
+}
 
-        .number {
-            width: 38px;
-            height: 38px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 15px;
-            border-radius: 50%;
-            background: #17233a;
-            color: #6fa0ff;
-            font-weight: bold;
-        }
+.modal-box h2{
+    margin-bottom:15px;
+}
 
-        .step p {
-            color: #929daf;
-            margin-top: 8px;
-            font-size: 14px;
-            line-height: 1.5;
-        }
+.modal-box p,
+.modal-box li{
+    color:#a0aaba;
+    line-height:1.7;
+}
 
-        footer {
-            padding: 25px 8%;
-            text-align: center;
-            border-top: 1px solid #1c2330;
-            color: #6f7888;
-            font-size: 13px;
-        }
+.modal-box ol{
+    padding-left:20px;
+    margin-top:15px;
+}
 
-        @media (max-width: 750px) {
-            header {
-                padding: 18px 5%;
-            }
+.close{
+    float:right;
+    background:none;
+    border:0;
+    color:#9ba6b8;
+    font-size:25px;
+    cursor:pointer;
+}
 
-            nav {
-                display: none;
-            }
+footer{
+    margin-top:50px;
+    padding:25px;
+    text-align:center;
+    border-top:1px solid #1b2432;
+    color:#697486;
+    font-size:13px;
+}
 
-            .cards,
-            .steps {
-                grid-template-columns: 1fr;
-            }
+@media(max-width:750px){
+    nav{
+        display:none;
+    }
 
-            .hero {
-                min-height: 65vh;
-            }
-        }
-    </style>
+    .device-grid,
+    .steps{
+        grid-template-columns:1fr;
+    }
+
+    .container{
+        width:90%;
+    }
+}
+</style>
 </head>
 
 <body>
 
 <header>
-    <div class="logo">Phone<span>Recovery</span></div>
+
+    <div class="logo">
+        Phone<span>Recovery</span>
+    </div>
 
     <nav>
-        <a href="#features">Features</a>
-        <a href="#how">How It Works</a>
+        <a href="#devices">Devices</a>
+        <a href="#steps">Process</a>
+        <a href="#safety">Safety</a>
     </nav>
+
 </header>
+
 
 <section class="hero">
 
-    <div class="hero-content">
-
-        <div class="badge">SECURE • SIMPLE • HELPFUL</div>
-
-        <h1>
-            Recover Your <span>Phone</span>
-            With Confidence.
-        </h1>
-
-        <p>
-            Phone Recovery Assistant is designed to guide users through
-            practical steps when a phone is lost, misplaced, or needs
-            recovery assistance.
-        </p>
-
-        <div class="buttons">
-            <a href="#how" class="btn primary">
-                Get Started
-            </a>
-
-            <a href="#features" class="btn secondary">
-                Explore Features
-            </a>
-        </div>
-
+    <div class="badge">
+        OFFICIAL RECOVERY ASSISTANT
     </div>
+
+    <h1>
+        Recover Your <span>Phone</span> Safely.
+    </h1>
+
+    <p>
+        A simple assistant for preparing your Android or iPhone
+        for official recovery, troubleshooting and factory-reset
+        procedures.
+    </p>
 
 </section>
 
-<section class="features" id="features">
 
-    <div class="section-title">
-        <h2>What It Helps With</h2>
-        <p>Simple tools and guidance for common phone recovery situations.</p>
+<section class="section" id="devices">
+
+<div class="container">
+
+    <div class="title">
+        <h2>Choose Your Device</h2>
+        <p>Follow the official recovery process for your device.</p>
     </div>
 
-    <div class="cards">
 
-        <div class="card">
-            <div class="icon">📍</div>
-            <h3>Recovery Guidance</h3>
+    <div class="device-grid">
+
+        <div class="device">
+
+            <div class="device-icon">🤖</div>
+
+            <h3>Android</h3>
+
             <p>
-                Follow clear steps to understand what you can do
-                after losing access to your phone.
+                Use official Android recovery options, manufacturer
+                recovery mode and Google account recovery.
             </p>
+
+            <button class="btn" onclick="openAndroid()">
+                Android Recovery
+            </button>
+
         </div>
 
-        <div class="card">
-            <div class="icon">🔐</div>
-            <h3>Account Security</h3>
-            <p>
-                Learn important security actions that can help
-                protect your accounts and personal information.
-            </p>
-        </div>
 
-        <div class="card">
-            <div class="icon">📱</div>
-            <h3>Phone Protection</h3>
+        <div class="device">
+
+            <div class="device-icon">🍎</div>
+
+            <h3>iPhone</h3>
+
             <p>
-                Get practical guidance for securing your device
-                and reducing the risk of unauthorized access.
+                Use Apple's official recovery process with a
+                computer and USB cable.
             </p>
+
+            <button class="btn" onclick="openIphone()">
+                iPhone Recovery
+            </button>
+
         </div>
 
     </div>
+
+</div>
 
 </section>
 
-<section class="how" id="how">
 
-    <div class="section-title">
-        <h2>How It Works</h2>
-        <p>A simple three-step approach.</p>
+<section class="section" id="steps">
+
+<div class="container">
+
+    <div class="title">
+        <h2>Recovery Process</h2>
+        <p>Prepare before starting a reset or recovery.</p>
     </div>
+
 
     <div class="steps">
 
         <div class="step">
+
             <div class="number">1</div>
-            <h3>Identify</h3>
+
+            <h3>Connect</h3>
+
             <p>
-                Understand what happened to your phone and
-                what access you still have.
+                Connect your own phone to the computer using
+                a reliable USB cable.
             </p>
+
         </div>
 
+
         <div class="step">
+
             <div class="number">2</div>
-            <h3>Secure</h3>
+
+            <h3>Recover</h3>
+
             <p>
-                Take appropriate steps to protect your accounts
-                and personal information.
+                Follow the official recovery instructions for
+                your phone manufacturer.
             </p>
+
         </div>
 
+
         <div class="step">
+
             <div class="number">3</div>
-            <h3>Recover</h3>
+
+            <h3>Restore</h3>
+
             <p>
-                Follow available recovery options and continue
-                with the appropriate next steps.
+                Complete setup and sign in with the account
+                previously associated with the device when required.
             </p>
+
         </div>
 
     </div>
 
+
+    <div class="warning" id="safety">
+
+        ⚠️ <strong>Important:</strong>
+
+        A factory reset permanently removes data stored on the
+        device. Back up important information whenever possible.
+        After a reset, the device may require the previously
+        associated Google or Apple account for activation.
+
+    </div>
+
+</div>
+
 </section>
 
+
 <footer>
-    © 2026 Phone Recovery Assistant. Built for helpful and responsible recovery guidance.
+    © 2026 Phone Recovery Assistant — Official recovery guidance only.
 </footer>
+
+
+<!-- Android Modal -->
+
+<div class="modal" id="androidModal">
+
+<div class="modal-box">
+
+<button class="close" onclick="closeModal('androidModal')">
+    ×
+</button>
+
+<h2>🤖 Android Recovery</h2>
+
+<p>
+For an Android phone, use the manufacturer's official
+recovery procedure.
+</p>
+
+<ol>
+
+<li>Connect the phone to your computer with a USB cable.</li>
+
+<li>Back up important data if you still have access.</li>
+
+<li>Use the manufacturer's official recovery instructions.</li>
+
+<li>If a factory reset is required, read the warning carefully.</li>
+
+<li>After resetting, complete the normal Android setup.</li>
+
+<li>If Google verification appears, use the Google account
+previously associated with the phone.</li>
+
+</ol>
+
+<p style="margin-top:20px;">
+This assistant does not bypass Google verification,
+screen locks or other security protections.
+</p>
+
+</div>
+</div>
+
+
+<!-- iPhone Modal -->
+
+<div class="modal" id="iphoneModal">
+
+<div class="modal-box">
+
+<button class="close" onclick="closeModal('iphoneModal')">
+    ×
+</button>
+
+<h2>🍎 iPhone Recovery</h2>
+
+<p>
+For an iPhone, use Apple's official recovery procedure
+through a compatible computer.
+</p>
+
+<ol>
+
+<li>Connect the iPhone to the computer using a USB cable.</li>
+
+<li>Back up your information whenever possible.</li>
+
+<li>Use Apple's official recovery process.</li>
+
+<li>Follow the instructions shown by the computer.</li>
+
+<li>If the device is erased, complete the normal setup.</li>
+
+<li>Use the Apple Account previously associated with the
+device when activation requires it.</li>
+
+</ol>
+
+<p style="margin-top:20px;">
+This assistant does not bypass Activation Lock,
+passcodes or Apple security protections.
+</p>
+
+</div>
+</div>
+
+
+<script>
+
+function openAndroid(){
+
+    document.getElementById("androidModal").style.display="flex";
+
+}
+
+function openIphone(){
+
+    document.getElementById("iphoneModal").style.display="flex";
+
+}
+
+function closeModal(id){
+
+    document.getElementById(id).style.display="none";
+
+}
+
+window.onclick=function(event){
+
+    if(event.target.classList.contains("modal")){
+
+        event.target.style.display="none";
+
+    }
+
+}
+
+</script>
 
 </body>
 </html>
