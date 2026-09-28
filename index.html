@@ -1,1 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <title>Phone Recovery Assistant</title>
+
+    <meta name="description"
+        content="Phone Recovery Assistant — a simple and secure tool to help users recover and protect their phones.">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #080b12;
+            color: #ffffff;
+            min-height: 100vh;
+        }
+
+        header {
+            padding: 22px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #1c2330;
+            background: #0b0f18;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: 700;
+        }
+
+        .logo span {
+            color: #4f8cff;
+        }
+
+        nav a {
+            color: #b8c0d0;
+            text-decoration: none;
+            margin-left: 25px;
+            font-size: 14px;
+        }
+
+        nav a:hover {
+            color: #ffffff;
+        }
+
+        .hero {
+            min-height: 75vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 8px 15px;
+            border: 1px solid #26354f;
+            border-radius: 30px;
+            color: #76a7ff;
+            background: #101827;
+            font-size: 13px;
+            margin-bottom: 25px;
+        }
+
+        h1 {
+            font-size: clamp(42px, 7vw, 78px);
+            line-height: 1.05;
+            margin-bottom: 22px;
+        }
+
+        h1 span {
+            color: #4f8cff;
+        }
+
+        .hero p {
+            color: #aeb7c7;
+            font-size: 18px;
+            line-height: 1.7;
+            max-width: 650px;
+            margin: auto;
+        }
+
+        .buttons {
+            margin-top: 35px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            text-decoration: none;
+            padding: 13px 24px;
+            border-radius: 9px;
+            font-weight: 600;
+            transition: 0.2s;
+        }
+
+        .primary {
+            background: #4f8cff;
+            color: white;
+        }
+
+        .primary:hover {
+            background: #3478f5;
+            transform: translateY(-2px);
+        }
+
+        .secondary {
+            border: 1px solid #293448;
+            color: white;
+            background: #111722;
+        }
+
+        .secondary:hover {
+            background: #182131;
+        }
+
+        .features {
+            padding: 70px 8%;
+            background: #0b0f18;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-title h2 {
+            font-size: 34px;
+            margin-bottom: 10px;
+        }
+
+        .section-title p {
+            color: #8994a7;
+        }
+
+        .cards {
+            max-width: 1100px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .card {
+            padding: 28px;
+            border: 1px solid #1d2635;
+            border-radius: 15px;
+            background: #0f141f;
+        }
+
+        .icon {
+            font-size: 30px;
+            margin-bottom: 18px;
+        }
+
+        .card h3 {
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            color: #929daf;
+            line-height: 1.6;
+            font-size: 14px;
+        }
+
+        .how {
+            padding: 70px 8%;
+            text-align: center;
+        }
+
+        .steps {
+            max-width: 850px;
+            margin: 40px auto 0;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .step {
+            padding: 25px;
+            border-radius: 14px;
+            border: 1px solid #1d2635;
+        }
+
+        .number {
+            width: 38px;
+            height: 38px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+            border-radius: 50%;
+            background: #17233a;
+            color: #6fa0ff;
+            font-weight: bold;
+        }
+
+        .step p {
+            color: #929daf;
+            margin-top: 8px;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        footer {
+            padding: 25px 8%;
+            text-align: center;
+            border-top: 1px solid #1c2330;
+            color: #6f7888;
+            font-size: 13px;
+        }
+
+        @media (max-width: 750px) {
+            header {
+                padding: 18px 5%;
+            }
+
+            nav {
+                display: none;
+            }
+
+            .cards,
+            .steps {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                min-height: 65vh;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">Phone<span>Recovery</span></div>
+
+    <nav>
+        <a href="#features">Features</a>
+        <a href="#how">How It Works</a>
+    </nav>
+</header>
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <div class="badge">SECURE • SIMPLE • HELPFUL</div>
+
+        <h1>
+            Recover Your <span>Phone</span>
+            With Confidence.
+        </h1>
+
+        <p>
+            Phone Recovery Assistant is designed to guide users through
+            practical steps when a phone is lost, misplaced, or needs
+            recovery assistance.
+        </p>
+
+        <div class="buttons">
+            <a href="#how" class="btn primary">
+                Get Started
+            </a>
+
+            <a href="#features" class="btn secondary">
+                Explore Features
+            </a>
+        </div>
+
+    </div>
+
+</section>
+
+<section class="features" id="features">
+
+    <div class="section-title">
+        <h2>What It Helps With</h2>
+        <p>Simple tools and guidance for common phone recovery situations.</p>
+    </div>
+
+    <div class="cards">
+
+        <div class="card">
+            <div class="icon">📍</div>
+            <h3>Recovery Guidance</h3>
+            <p>
+                Follow clear steps to understand what you can do
+                after losing access to your phone.
+            </p>
+        </div>
+
+        <div class="card">
+            <div class="icon">🔐</div>
+            <h3>Account Security</h3>
+            <p>
+                Learn important security actions that can help
+                protect your accounts and personal information.
+            </p>
+        </div>
+
+        <div class="card">
+            <div class="icon">📱</div>
+            <h3>Phone Protection</h3>
+            <p>
+                Get practical guidance for securing your device
+                and reducing the risk of unauthorized access.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+<section class="how" id="how">
+
+    <div class="section-title">
+        <h2>How It Works</h2>
+        <p>A simple three-step approach.</p>
+    </div>
+
+    <div class="steps">
+
+        <div class="step">
+            <div class="number">1</div>
+            <h3>Identify</h3>
+            <p>
+                Understand what happened to your phone and
+                what access you still have.
+            </p>
+        </div>
+
+        <div class="step">
+            <div class="number">2</div>
+            <h3>Secure</h3>
+            <p>
+                Take appropriate steps to protect your accounts
+                and personal information.
+            </p>
+        </div>
+
+        <div class="step">
+            <div class="number">3</div>
+            <h3>Recover</h3>
+            <p>
+                Follow available recovery options and continue
+                with the appropriate next steps.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+<footer>
+    © 2026 Phone Recovery Assistant. Built for helpful and responsible recovery guidance.
+</footer>
+
+</body>
+</html>
